@@ -1,0 +1,347 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    
+body{
+    background: #000000;
+}
+
+.main-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    grid-auto-rows: minmax(100px, auto);
+    width: 95%;
+    margin: 20px auto 0 auto;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.dropdown{
+    width: 95%;
+    margin: 20px auto 0 auto;
+}
+
+.dropdown-toggle{
+    width: 100%;
+    max-width: 150px;
+    background-color: #9bdc28;
+    border: none;
+    padding: 10px 0;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 7px;
+    /* position: absolute;
+    top: 1%;
+    right: 3%; */
+    position: relative;
+}
+
+.dropdown-toggle:hover{
+    cursor: pointer;
+}
+
+.dropdown-toggle:focus{
+    outline: none;
+}
+
+.dropdown-menu{
+    width: 100%;
+    max-width: 150px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 9;
+}
+
+.dropdown-item{
+    color: #232323;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    padding: 5px;
+}
+
+.main-card{
+    position: relative;
+    background-color: #232323;
+    border-radius: 20px;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.main-card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #9bdc28;   
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+
+.main-card:hover::before{
+    clip-path: circle(300px at 80% -20%);
+}
+
+.main-card::after{
+    content: "ASCII";
+    position: absolute;
+    bottom: 3%;
+    left: 0%;
+    width: 100%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255,255,255,0.04);
+}
+
+.titleBx{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    width: 100%;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.main-card:hover .titleBx{
+    top: 15%;
+    transform: translateY(-15%);
+}
+
+.contentBx{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 9;
+}
+
+.main-card:hover .contentBx{
+    height: 210px;
+}
+
+.contentBx h2{
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.size,
+.price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.main-card:hover .contentBx .size{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+
+.main-card:hover .contentBx .price{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.6s;
+}
+
+.size h3,
+.price h3{
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+.size span{
+    width: 43px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    color: #111111;
+    background: #ffffff;
+    transition: 0.5s;
+    color: #111111;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.price span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 26px;
+    background: #ffffff;
+    color: #111111;
+    border-radius: 4px;
+    margin: auto 5px;
+    cursor: pointer;
+}
+
+.contentBx a{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ffffff;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #111;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.5s;
+}
+
+.main-card:hover .contentBx a{
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.75s;
+}
+
+
+.loader{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(45deg,transparent,transparent 40%, #35f403);
+    animation: animate 2s linear infinite;
+}
+
+@keyframes animate{
+    0%
+    {
+        transform: rotate(0deg);
+        filter: hue-rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+        filter: hue-rotate(360deg);
+    }
+}
+
+
+.loader::before{
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    background: #000000;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+.loader::after{
+    content: "kdfksdkjfsdf";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: linear-gradient(45deg,transparent, transparent 40%, #e5f403);
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(30px);
+}
+
+.loader__container{
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader__text{
+    position: absolute;
+    color: #ffffff;
+    z-index: 9999999999;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.header{
+    width: 100%;
+    background: #232323;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    border-radius: 7px;
+}
+
+header h1{
+    text-align: center;
+    font-size: 38px;
+    padding-bottom: 20px;
+}
+
+header p{
+    padding: 15px;
+}
+
+.header img{
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 320px;
+}
+
+.end{
+    width: 100%;
+    max-width: 750px;
+    color: #ffffff;
+    font-size: 38px;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 3px solid #ffffff;
+    border-bottom: 3px solid #ffffff;
+    margin: 50px auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.ad h1{
+    text-align: center;
+}
+
+.ad p{
+    padding-top: 10px;
+    text-align: center;
+}
+
+.ad img{
+    padding-top: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 955px){
+    .main-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 560px){
+    .main-container{
+        grid-template-columns: 1fr
+    }
+}
