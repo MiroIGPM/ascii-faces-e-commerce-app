@@ -1,3 +1,9 @@
+Run the app
+=========
+
+1. clone repository
+2. npm start
+
 Products Grid
 ====
 
